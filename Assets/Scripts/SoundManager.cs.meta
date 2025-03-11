@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 1822fd910c162a84eaa9ca7c40f64fa9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - AS: {instanceID: 0}
+  - powerupSource: {instanceID: 0}
+  - GameMusic: {fileID: 8300000, guid: 35c4c4a1792986747a82120fd135cb6c, type: 3}
+  - PlayerMoveSFX: {fileID: 8300000, guid: ea2a6e94b40a1314d83806c15120cc63, type: 3}
+  - EnemyMoveSFX: {instanceID: 0}
+  - PlayerHitSFX: {fileID: 8300000, guid: 82ef055226a1af64ba1605e623bb26bc, type: 3}
+  - PlayerDieSFX: {fileID: 8300000, guid: 217c7abd0ad291947a38b507eef7ad4d, type: 3}
+  - PlayerKillSFX: {fileID: 8300000, guid: 17d4f7cbd5e833747b5bf84a830c5a37, type: 3}
+  - PlayerTurboSFX: {fileID: 8300000, guid: 719536de5d83c9f4cb3166fec05883f0, type: 3}
+  - ScoreUpSFX: {instanceID: 0}
+  - ScoreDownSFX: {instanceID: 0}
+  - TimerSFX: {instanceID: 0}
+  - GameStartSFX: {fileID: 8300000, guid: d59c9c925adc7ec4fb4e905f3f216d8d, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
