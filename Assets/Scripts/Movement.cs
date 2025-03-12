@@ -3,13 +3,13 @@ using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour
 {
-    public Rigidbody2D rb { get; private set; }
+    public Rigidbody2D rb; 
     
     public LayerMask obstacleLayer;
 
     public Vector2 initialDirection;
-    public Vector2 direction { get; private set; }
-    public Vector2 nextDirection { get; private set; }
+    public Vector2 direction;
+    public Vector2 nextDirection;
 
     private void Awake()
     {
@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 position = this.rb.position;
-        Vector2 translation = this.direction * PacManController.instance.speed;
+        Vector2 translation = this.direction * PacManController.instance.speed * Time.fixedDeltaTime;
 
         this.rb.MovePosition(position + translation);
     }

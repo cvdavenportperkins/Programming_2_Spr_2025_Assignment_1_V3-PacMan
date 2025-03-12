@@ -49,7 +49,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b31413f29c12fcf49ab92b4165322731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   speed: 5
+  movement: {fileID: 0}
 --- !u!50 &4066334865477110096
 Rigidbody2D:
   serializedVersion: 5
@@ -156,7 +158,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1f9604f5749fde646a59a72c9ee1cd3a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -202,4 +204,4 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 8
-  initialDirection: {x: 1, y: 0}
+  initialDirection: {x: 0, y: 0}
