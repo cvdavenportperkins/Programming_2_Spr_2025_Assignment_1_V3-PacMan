@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.Timeline;
 using System.Runtime.CompilerServices;
+using System.Threading;
 
 public class SoundManager : MonoBehaviour
 {
@@ -52,29 +53,24 @@ public class SoundManager : MonoBehaviour
     }
     public void PlayPowerupSound(AudioClip clip, float duration)
     {
-        StartCoroutine(PlayPowerUpSoundRoutine(clip, duration));
-    }    
-    
-    private IEnumerator PlayPowerUpSoundRoutine(AudioClip clip, float duration)
-    { 
-        // mute background music
         BGM.volume = 0;
-
-        // Play power-up sound
         AS.volume = 1;
         powerupSource.volume = 1;
         powerupSource.clip = clip;
         powerupSource.loop = true;
         powerupSource.Play();
         Debug.Log("Playing PlayerTurbo sound: " + clip.name);
+        StartCoroutine(DeactivatePowerUpSource(duration));
+    }
 
+    private IEnumerator DeactivatePowerUpSource(float duration)
+    { 
+        
         // Stop power-up sound after duration and resume background music
         yield return new WaitForSeconds(duration);
 
         // Stop power-up sound
         powerupSource.Stop();
-
-        // Resume background music
         BGM.volume = 1;
     }
 }

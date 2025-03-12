@@ -9855,6 +9855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AS: {fileID: 1516486260}
   powerupSource: {fileID: 1516486260}
+  BGM: {fileID: 1516486260}
   GameMusic: {fileID: 8300000, guid: 35c4c4a1792986747a82120fd135cb6c, type: 3}
   PlayerMoveSFX: {fileID: 8300000, guid: ea2a6e94b40a1314d83806c15120cc63, type: 3}
   EnemyMoveSFX: {fileID: 8300000, guid: b4e0d7c43096c1f4fa1c3a077f86b571, type: 3}
