@@ -4,6 +4,7 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
+//using System.Diagnostics;
 
 public class GameManager : MonoBehaviour
 {
@@ -47,11 +48,33 @@ public class GameManager : MonoBehaviour
 
         // Make GameManager persistent across scenes
         DontDestroyOnLoad(gameObject);
+    
+        if (timerText != null)
+        {
+            timerText = GameObject.Find("TimerText").GetComponent<TextMeshProUGUI>();
+        }
+        
+        if (timerText == null)
+        {
+            Debug.LogError("TimerText is not assigned!");
+        }
+
+        if (timerText != null)
+        {
+            timerText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
+        }
+
+        if (timerText == null)
+        {
+            Debug.LogError("ScoreText is not assigned!");
+        }
     }
 
     void Start()
     {
+        isGameOver = false;
         timer = gameTime;
+        score = 0;
         UpdateScore();
         UpdateTimer();
         SoundManager.Instance.PlaySound(SoundManager.Instance.GameStartSFX);
@@ -100,12 +123,26 @@ public class GameManager : MonoBehaviour
     }
     void UpdateScore()
     {
-        scoreText.text = "Score: " + score;
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + score;
+        }
+        else
+        {
+            Debug.LogError("Scoretext is null!");
+        }
     }
 
     void UpdateTimer()
     {
-        timerText.text = "Time: " + Mathf.FloorToInt(timer);
+        if (timerText != null)
+        {
+            timerText.text = "Time: " + Mathf.FloorToInt(timer);
+        }
+        else
+        {
+            Debug.LogError("Timertext is null!");
+        }
     }
 
     public void DecreaseHealth()
@@ -133,9 +170,13 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
 
-        isGameOver = true;
-        gameOverText.gameObject.SetActive(true);
+        isGameOver = true;  
         // Show game over UI or reload the scene
+        if (gameOverText != null)
+        {
+            gameOverText.gameObject.SetActive(true);
+        }
+          
         Debug.Log("Game Over!");
         StartCoroutine(RestartGameAfterDelay());
     }
@@ -145,7 +186,12 @@ public class GameManager : MonoBehaviour
         if (!isGameOver)
         {
             isGameOver = true;
-            youWinText.gameObject.SetActive(true);
+            // show you win UI or reload the scene
+            if (youWinText != null)
+            {
+                youWinText.gameObject.SetActive(true);
+            }
+           
             Debug.Log("Victory");
             StartCoroutine(RestartGameAfterDelay());
         }
@@ -160,10 +206,12 @@ public class GameManager : MonoBehaviour
     private void RestartGame()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
-        timer = gameTime;
+        
+        timer = 0;
         isGameOver = false;
         score = 0;
         isPlayerTurboActive = false;
+        
         UpdateScore();
         UpdateTimer();
         

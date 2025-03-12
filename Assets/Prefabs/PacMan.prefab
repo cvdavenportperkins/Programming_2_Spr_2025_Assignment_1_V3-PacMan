@@ -89,7 +89,7 @@ CircleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 49bc38dd4255d9f4f92249ef231f2fb7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -201,7 +201,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800e9dbbb129ea848b4f932701fa8acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 4066334865477110096}
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 8
   initialDirection: {x: 0, y: 0}
+  direction: {x: 0, y: 0}
+  nextDirection: {x: 0, y: 0}

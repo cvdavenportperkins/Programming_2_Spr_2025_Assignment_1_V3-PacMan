@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 42211225}
   - component: {fileID: 42211224}
   m_Layer: 5
-  m_Name: GameOver
+  m_Name: GameOverText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 346623329}
   - component: {fileID: 346623328}
   m_Layer: 5
-  m_Name: YouWin
+  m_Name: YouWinText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9668,7 +9668,7 @@ GameObject:
   - component: {fileID: 992548727}
   - component: {fileID: 992548726}
   m_Layer: 5
-  m_Name: Score
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9990,7 +9990,7 @@ GameObject:
   - component: {fileID: 1557019160}
   - component: {fileID: 1557019159}
   m_Layer: 5
-  m_Name: Timer
+  m_Name: TimerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

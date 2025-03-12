@@ -4,12 +4,11 @@ using UnityEngine.UIElements;
 public class Movement : MonoBehaviour
 {
     public Rigidbody2D rb; 
-    
     public LayerMask obstacleLayer;
-
     public Vector2 initialDirection;
     public Vector2 direction;
     public Vector2 nextDirection;
+    
 
     private void Awake()
     {
@@ -20,7 +19,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        if(this.nextDirection != Vector2.zero)
+        if (this.nextDirection != Vector2.zero)
         {
             SetDirection(this.nextDirection);
         }
@@ -30,8 +29,15 @@ public class Movement : MonoBehaviour
     {
         Vector2 position = this.rb.position;
         Vector2 translation = this.direction * PacManController.instance.speed * Time.fixedDeltaTime;
-
         this.rb.MovePosition(position + translation);
+        
+        //attempting using lerp for smoother movement
+        //position = Vector2.Lerp(position, position + translation, Time.fixedDeltaTime);
+        //this.rb.MovePosition(position);
+
+
+        Debug.Log("Current Position: " + position);
+        Debug.Log("Translation: " + translation); 
     }
 
     public void SetDirection(Vector2 direction)
@@ -49,8 +55,8 @@ public class Movement : MonoBehaviour
 
     public bool Blocked(Vector2 direction)
     {
-        RaycastHit2D hit = Physics2D.BoxCast(this.transform.position, Vector2.one * 0.75f, 0.0f, direction, 1.5f, this.obstacleLayer);
-        Debug.Log("Blocked" + (hit.collider != null));
+        RaycastHit2D hit = Physics2D.BoxCast(this.transform.position, Vector2.one * 0.5f, 0.0f, direction, 1.5f, this.obstacleLayer);
+        Debug.Log("Blocked" + (hit.collider != null) + " in direction: " + direction);
         return hit.collider != null;
         
     }

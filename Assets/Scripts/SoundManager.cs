@@ -39,7 +39,7 @@ public class SoundManager : MonoBehaviour
     public void PlayPowerupSound(AudioClip clip, float duration)
     {
         // Stop background music
-        AS.Stop();
+        AS.volume = 0;
 
         // Play power-up sound
         powerupSource.clip = clip;
@@ -58,7 +58,7 @@ public class SoundManager : MonoBehaviour
         powerupSource.Stop();
 
         // Resume background music
-        PlayBackgroundMusic(GameMusic);
+        AS.volume =1;
     }
 }
 
