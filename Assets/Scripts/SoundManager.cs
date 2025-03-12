@@ -1,11 +1,16 @@
 using UnityEngine;
+using System.Collections;
+using UnityEngine.Timeline;
+using System.Runtime.CompilerServices;
 
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
-    public AudioSource AS;
-    public AudioSource powerupSource;
-    public AudioClip GameMusic, PlayerMoveSFX, EnemyMoveSFX, PlayerHitSFX, PlayerDieSFX, PlayerKillSFX, PlayerTurboSFX, ScoreUpSFX, ScoreDownSFX, TimerSFX, GameStartSFX;
+    public AudioSource AS; //soundeffects
+    public AudioSource powerupSource; //playerturbo SFX
+    public AudioSource BGM; //Background music
+    public AudioClip GameMusic;
+    public AudioClip PlayerMoveSFX, EnemyMoveSFX, PlayerHitSFX, PlayerDieSFX, PlayerKillSFX, PlayerTurboSFX, ScoreUpSFX, ScoreDownSFX, TimerSFX, GameStartSFX;
 
     void Awake()
     {
@@ -28,37 +33,49 @@ public class SoundManager : MonoBehaviour
     public void PlaySound(AudioClip clip)
     {
         AS.PlayOneShot(clip);
+        Debug.Log("Playing SFX: " + clip.name);
     }
 
     public void PlayBackgroundMusic(AudioClip clip)
     {
-        AS.clip = clip;
-        AS.loop = true;
-        AS.Play();
+        if (clip != null)
+        {
+            BGM.clip = clip;
+            BGM.loop = true;
+            BGM.Play();
+            Debug.Log("Playing BGM: " + clip.name);
+        }
+        else
+        {
+            Debug.LogError("BMG AudioClip is not assigned");
+        }
     }
     public void PlayPowerupSound(AudioClip clip, float duration)
     {
-        // Stop background music
-        AS.volume = 0;
+        StartCoroutine(PlayPowerUpSoundRoutine(clip, duration));
+    }    
+    
+    private IEnumerator PlayPowerUpSoundRoutine(AudioClip clip, float duration)
+    { 
+        // mute background music
+        BGM.volume = 0;
 
         // Play power-up sound
+        AS.volume = 1;
+        powerupSource.volume = 1;
         powerupSource.clip = clip;
         powerupSource.loop = true;
         powerupSource.Play();
+        Debug.Log("Playing PlayerTurbo sound: " + clip.name);
 
-        // Start coroutine to stop power-up sound after duration and resume background music
-        StartCoroutine(StopPowerupSoundAfterDuration(duration));
-    }
-
-    private System.Collections.IEnumerator StopPowerupSoundAfterDuration(float duration)
-    {
+        // Stop power-up sound after duration and resume background music
         yield return new WaitForSeconds(duration);
 
         // Stop power-up sound
         powerupSource.Stop();
 
         // Resume background music
-        AS.volume =1;
+        BGM.volume = 1;
     }
 }
 
