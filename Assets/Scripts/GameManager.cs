@@ -218,6 +218,8 @@ public class GameManager : MonoBehaviour
         pellets.Clear();
         GameObject[] pelletsArray = GameObject.FindGameObjectsWithTag("Pellet");
         pellets.AddRange(pelletsArray);
+       
+    
     }
 
     public void ActivatePlayerTurbo(float duration)

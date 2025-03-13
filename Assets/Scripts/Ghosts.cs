@@ -5,12 +5,26 @@ public class Ghosts : MonoBehaviour
 
     private GameManager gameManager;
     private SoundManager soundManager;
+    public Movement movement;
+    public float speed = 6f;
+    public Transform target;
+    public Ghosts ghost;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
+    private void Awake()
+    {
+        this.ghost.GetComponent<Ghosts>();
+        this.movement.GetComponent<Movement>();
+    }
+    
+    
     void Start()
     {
         gameManager = GameManager.instance; //Access singleton instance
         soundManager = SoundManager.Instance;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,6 +34,7 @@ public class Ghosts : MonoBehaviour
             if (gameManager.isPlayerTurboActive)
             {
                 Destroy(gameObject);
+                speed = 7f;
                 gameManager.AddScore(200);
                 soundManager.PlaySound(SoundManager.Instance.PlayerKillSFX);
             }
@@ -30,4 +45,27 @@ public class Ghosts : MonoBehaviour
             }
         }
     }
+//Base Behavior
+
+
+
+//PlayerTurbo Behavior
+
+
+
+//Chase Behavior
+
+
+
+//Home
+
+
+
+
+//Reset
+
+
+
+
+
 }
