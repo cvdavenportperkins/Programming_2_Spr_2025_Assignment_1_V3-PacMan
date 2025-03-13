@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2635949194494584661, guid: bede22f3761dc16469656a7462e8f297, type: 3}
+      propertyPath: ghost
+      value: 
+      objectReference: {fileID: 9123442319208550916}
+    - target: {fileID: 2635949194494584661, guid: bede22f3761dc16469656a7462e8f297, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 2723104417247182865, guid: 3579f869e42c05147a138e4d511aae0e, type: 3}
     - target: {fileID: 3789232098133604611, guid: bede22f3761dc16469656a7462e8f297, type: 3}
       propertyPath: m_Name
       value: Ghost_Pinky
@@ -64,6 +72,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.9903333
       objectReference: {fileID: 0}
+    - target: {fileID: 7841540272778151603, guid: bede22f3761dc16469656a7462e8f297, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7927042211919526025, guid: bede22f3761dc16469656a7462e8f297, type: 3}
       propertyPath: initialDirection.y
       value: -1
@@ -73,3 +85,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bede22f3761dc16469656a7462e8f297, type: 3}
+--- !u!114 &9123442319208550916 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2635949194494584661, guid: bede22f3761dc16469656a7462e8f297, type: 3}
+  m_PrefabInstance: {fileID: 6487505219971364177}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ab839fac96f8149a48f8a79c980efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

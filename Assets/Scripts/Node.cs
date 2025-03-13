@@ -5,7 +5,7 @@ public class Node : MonoBehaviour
     public List<Vector2> availableDirections;
     public LayerMask obstacleLayer;
 
-    private Start()
+    private void Start()
     {
         this.availableDirections = new List<Vector2>();
 
@@ -20,7 +20,11 @@ public class Node : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.BoxCast(this.transform.position, Vector2.one * 0.5f, 0.0f, direction, 1f, this.obstacleLayer);
         Debug.Log("Blocked" + (hit.collider != null) + " in direction: " + direction);
-        return hit.collider != null;
+        
+        if (hit.collider == null)
+        {
+            this.availableDirections.Add(direction);
+        }
     }
 
 }

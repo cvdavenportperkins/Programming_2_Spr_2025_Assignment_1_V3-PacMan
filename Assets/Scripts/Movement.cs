@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     public Vector2 initialDirection;
     public Vector2 direction;
     public Vector2 nextDirection;
+   
     
 
     private void Awake()
@@ -30,11 +31,6 @@ public class Movement : MonoBehaviour
         Vector2 position = this.rb.position;
         Vector2 translation = this.direction * PacManController.instance.speed * Time.fixedDeltaTime;
         this.rb.MovePosition(position + translation);
-        
-        //attempting using lerp for smoother movement
-        //position = Vector2.Lerp(position, position + translation, Time.fixedDeltaTime);
-        //this.rb.MovePosition(position);
-
 
         Debug.Log("Current Position: " + position);
         Debug.Log("Translation: " + translation); 
