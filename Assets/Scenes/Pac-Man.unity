@@ -302,6 +302,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42211222}
   m_CullTransparentMesh: 1
+--- !u!1 &249431281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 249431282}
+  m_Layer: 0
+  m_Name: GhostSpawn1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &249431282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249431281}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.8750145, y: 1.004185, z: 0.009848653}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &258844252
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,7 +1085,7 @@ GameObject:
   - component: {fileID: 656227744}
   m_Layer: 3
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7038,6 +7069,17 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &779035425 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7462516994565313384, guid: f004df68b7317ec4abf07abc215a3f91, type: 3}
+  m_PrefabInstance: {fileID: 1108945736}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 800e9dbbb129ea848b4f932701fa8acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &788744517
 GameObject:
   m_ObjectHideFlags: 0
@@ -7126,7 +7168,7 @@ GameObject:
   - component: {fileID: 803419927}
   m_Layer: 7
   m_Name: Pellets
-  m_TagString: Untagged
+  m_TagString: Pellet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9899,6 +9941,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992548724}
   m_CullTransparentMesh: 1
+--- !u!114 &1062819150 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5688800543576943199, guid: a556c98a7933b2f42b62faccc5769207, type: 3}
+  m_PrefabInstance: {fileID: 1615066515}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 800e9dbbb129ea848b4f932701fa8acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1078579130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9911,6 +9964,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost_Blinky
       objectReference: {fileID: 0}
+    - target: {fileID: 1915891945467921298, guid: a71c1c665588ee24ca93be62a7e1fb0a, type: 3}
+      propertyPath: movement
+      value: 
+      objectReference: {fileID: 1759732703}
     - target: {fileID: 8553811445834792922, guid: a71c1c665588ee24ca93be62a7e1fb0a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.75
@@ -9980,6 +10037,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3244395604822936756, guid: f004df68b7317ec4abf07abc215a3f91, type: 3}
+      propertyPath: movement
+      value: 
+      objectReference: {fileID: 779035425}
     - target: {fileID: 4396819229490156258, guid: f004df68b7317ec4abf07abc215a3f91, type: 3}
       propertyPath: m_Name
       value: Ghost_Inky
@@ -10391,6 +10452,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 316636000331576707, guid: a556c98a7933b2f42b62faccc5769207, type: 3}
+      propertyPath: movement
+      value: 
+      objectReference: {fileID: 1062819150}
     - target: {fileID: 1469899248086313941, guid: a556c98a7933b2f42b62faccc5769207, type: 3}
       propertyPath: m_Name
       value: Ghost_Clyde
@@ -10440,6 +10505,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a556c98a7933b2f42b62faccc5769207, type: 3}
+--- !u!114 &1759732703 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5764847926220889166, guid: a71c1c665588ee24ca93be62a7e1fb0a, type: 3}
+  m_PrefabInstance: {fileID: 1078579130}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 800e9dbbb129ea848b4f932701fa8acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1788479303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10492,6 +10568,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost_Pinky
       objectReference: {fileID: 0}
+    - target: {fileID: 9123442319208550916, guid: 71fc3204396eafb47801804bc1639ab0, type: 3}
+      propertyPath: movement
+      value: 
+      objectReference: {fileID: 1853984515}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10510,7 +10590,7 @@ GameObject:
   - component: {fileID: 1831888685}
   m_Layer: 6
   m_Name: Nodes
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11290,6 +11370,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1853984515 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3750017741275254232, guid: 71fc3204396eafb47801804bc1639ab0, type: 3}
+  m_PrefabInstance: {fileID: 1788479303}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 800e9dbbb129ea848b4f932701fa8acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1871786917
 GameObject:
   m_ObjectHideFlags: 0
@@ -11443,6 +11534,37 @@ MonoBehaviour:
   healthImage1: {fileID: 788744517}
   healthImage2: {fileID: 472294102}
   healthImage3: {fileID: 304089338}
+--- !u!1 &1988710783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1988710784}
+  m_Layer: 0
+  m_Name: GhostHome1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1988710784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988710783}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.8750145, y: 1.004185, z: 0.009848653}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -11459,3 +11581,5 @@ SceneRoots:
   - {fileID: 1108945736}
   - {fileID: 1788479303}
   - {fileID: 1615066515}
+  - {fileID: 249431282}
+  - {fileID: 1988710784}

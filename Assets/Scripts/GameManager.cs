@@ -59,12 +59,12 @@ public class GameManager : MonoBehaviour
             Debug.LogError("TimerText is not assigned!");
         }
 
-        if (timerText != null)
+        if (scoreText != null)
         {
-            timerText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
+            scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
         }
 
-        if (timerText == null)
+        if (scoreText == null)
         {
             Debug.LogError("ScoreText is not assigned!");
         }
@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         isGameOver = false;
+        isPlayerTurboActive = false;
         timer = gameTime;
         score = 0;
         UpdateScore();
