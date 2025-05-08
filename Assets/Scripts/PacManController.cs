@@ -81,14 +81,14 @@ public class PacManController : MonoBehaviour
         {
             gameManager.CollectPellet(collision.gameObject);
             Destroy(collision.gameObject);
-            gameManager.AddScore(10); // Add points for each pellet
+            gameManager.AddScore(25); // Add points for each pellet
             SoundManager.Instance.PlaySound(SoundManager.Instance.ScoreUpSFX); // Play sound effect
         }
         
         else if (collision.tag == "PowerPellet")
         {
             Destroy(collision.gameObject);
-            gameManager.AddScore(50); // Add more points for power pellet
+            gameManager.AddScore(100); // Add more points for power pellet
             SoundManager.Instance.PlayPowerupSound(SoundManager.Instance.PlayerTurboSFX,10f); // Play sound effect
             SoundManager.Instance.PlaySound(SoundManager.Instance.EnemyMoveSFX);
             gameManager.ActivatePlayerTurbo(10f); //Activate PlayerTurbo for 10 seconds

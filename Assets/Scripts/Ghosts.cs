@@ -6,8 +6,9 @@ public class Ghosts : MonoBehaviour
 {
     private GameManager gameManager;
     private SoundManager soundManager;
+    public GhostBehavior ghostBehavior;
+
     public Movement movement;
-    public float speed = 6f;
     public Transform target; // Player target
     public Ghosts ghost;
 
@@ -15,12 +16,29 @@ public class Ghosts : MonoBehaviour
     {
         this.ghost = GetComponent<Ghosts>();
         this.movement = GetComponent<Movement>();
+        this.ghostBehavior = GetComponent<GhostBehavior>();
     }
 
     void Start()
     {
         gameManager = GameManager.instance;
         soundManager = SoundManager.Instance;
+        ResetState();
+    }
+
+    public void ResetState()
+    {
+        this.gameObject.SetActive(true);
+    }
+
+    private void Update()
+    {
+        if (ghostBehavior != null)
+        {
+            movement.speed = ghostBehavior.currentState == GhostBehavior.GhostState.Frightened ?
+                             ghostBehavior.frightenedSpeed :
+                             ghostBehavior.baseSpeed;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,13 +48,13 @@ public class Ghosts : MonoBehaviour
             if (gameManager.isPlayerTurboActive == true)
             {
                 Destroy(gameObject);
-                gameManager.AddScore(200);
+                gameManager.AddScore(250);
                 soundManager.PlaySound(SoundManager.Instance.PlayerKillSFX);
                 Debug.Log("Player/Ghost collision");
             }
             else
             {
-                gameManager.SubtractScore(50);
+                gameManager.SubtractScore(200);
                 gameManager.DecreaseHealth();
                 soundManager.PlaySound(SoundManager.Instance.PlayerHitSFX);
             }

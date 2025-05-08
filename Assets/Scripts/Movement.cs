@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     public Vector2 initialDirection;
     public Vector2 direction;
     public Vector2 nextDirection;
+    public float speed;
 
     private void Awake()
     {
