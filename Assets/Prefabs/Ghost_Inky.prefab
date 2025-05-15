@@ -122,7 +122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7841540272778151603, guid: bede22f3761dc16469656a7462e8f297, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7927042211919526025, guid: bede22f3761dc16469656a7462e8f297, type: 3}
       propertyPath: initialDirection.y
