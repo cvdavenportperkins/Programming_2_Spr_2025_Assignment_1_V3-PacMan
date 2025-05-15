@@ -4,6 +4,7 @@ public class PacManController : MonoBehaviour
 {
     public static PacManController instance;
     public GameManager gameManager;
+    public SoundManager soundManager;
     private Vector2 direction;
     public float speed = 5f;
     public Movement movement;
@@ -30,6 +31,31 @@ public class PacManController : MonoBehaviour
         {
             gameManager = Object.FindFirstObjectByType<GameManager>();
         }
+        
+        GetComponent<Rigidbody2D>().linearVelocity = direction * speed;
+
+    }
+
+    private void Start()
+    {
+        if (GameManager.instance == null)
+        {
+            Debug.LogError("GameManager instance is missing");
+        }
+        else
+        {
+            gameManager = GameManager.instance;
+        }
+
+        if (SoundManager.Instance == null)
+        {
+            Debug.LogError("GameManager instance is missing");
+        }
+        else
+        {
+            soundManager = SoundManager.Instance;
+        }
+
     }
 
     void Update()
@@ -41,7 +67,7 @@ public class PacManController : MonoBehaviour
     void FixedUpdate()
     {
         UpdateDirection();
-        GetComponent<Rigidbody2D>().linearVelocity = direction * speed;
+        
     }
         
     void UpdateDirection()

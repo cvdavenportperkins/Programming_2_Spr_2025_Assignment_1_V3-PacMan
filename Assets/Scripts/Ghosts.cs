@@ -10,19 +10,36 @@ public class Ghosts : MonoBehaviour
 
     public Movement movement;
     public Transform target; // Player target
-    public Ghosts ghost;
+    public Ghosts ghosts;
 
     private void Awake()
     {
-        this.ghost = GetComponent<Ghosts>();
+        this.ghosts = GetComponent<Ghosts>();
         this.movement = GetComponent<Movement>();
         this.ghostBehavior = GetComponent<GhostBehavior>();
     }
 
     void Start()
     {
-        gameManager = GameManager.instance;
-        soundManager = SoundManager.Instance;
+        if(GameManager.instance == null)
+        {
+            Debug.LogError("GameManager instance is missing");
+        }
+        else
+        {
+            gameManager = GameManager.instance;
+        }
+
+
+        if (SoundManager.Instance == null)
+        {
+            Debug.LogError("GameManager instance is missing");
+        }
+        else
+        {
+            soundManager = SoundManager.Instance;
+        }
+
         ResetState();
     }
 
@@ -64,12 +81,12 @@ public class Ghosts : MonoBehaviour
             Node node = collision.GetComponent<Node>();
             if (node != null)
             {
-                Debug.Log("Ghost '" + ghost.name + "' collided with node at position " + node.transform.position + " with available directions: " + string.Join(", ", node.availableDirections));
+                Debug.Log("Ghost '" + ghosts.name + "' collided with node at position " + node.transform.position + " with available directions: " + string.Join(", ", node.availableDirections));
 
                 if (node.availableDirections.Count > 0)
                 {
                     int index = Random.Range(0, node.availableDirections.Count);
-                    if (node.availableDirections[index] == -this.ghost.movement.direction && node.availableDirections.Count > 1)
+                    if (node.availableDirections[index] == -this.ghosts.movement.direction && node.availableDirections.Count > 1)
                     {
                         index++;
 
@@ -79,7 +96,7 @@ public class Ghosts : MonoBehaviour
                         }
                     }
 
-                    this.ghost.movement.SetDirection(node.availableDirections[index]);
+                    this.ghosts.movement.SetDirection(node.availableDirections[index]);
                 }
                 else
                 {

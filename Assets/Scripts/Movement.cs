@@ -12,8 +12,14 @@ public class Movement : MonoBehaviour
 
     private void Awake()
     {
-        this.rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
+        if (rb == null)
+        {
+            Debug.LogError("Movement: Rigidbody2D is missing");
+        }
+        
         this.direction = initialDirection;
+       
     }
 
     private void Update()
@@ -49,7 +55,7 @@ public class Movement : MonoBehaviour
 
     public bool Blocked(Vector2 direction)
     {
-        RaycastHit2D hit = Physics2D.BoxCast(this.transform.position, Vector2.one * 0.5f, 0.0f, direction, 1.5f, this.obstacleLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(this.transform.position, Vector2.one * 0.5f, 0.0f, direction, 1f, this.obstacleLayer);
         Debug.Log("Blocked: " + (hit.collider != null) + " in direction: " + direction);
         return hit.collider != null;
     }

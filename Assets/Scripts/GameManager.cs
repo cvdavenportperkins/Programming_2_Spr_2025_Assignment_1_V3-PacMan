@@ -8,7 +8,7 @@ using NUnit.Framework;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance = null; // Singleton instance
+    public static GameManager instance; // Singleton instance
     private SoundManager Instance;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timerText;
@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+
         isGameOver = false;
         isPlayerTurboActive = false;
         timer = gameTime;
