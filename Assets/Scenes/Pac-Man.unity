@@ -10125,9 +10125,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghosts: {fileID: 0}
   currentState: 0
-  movement: {fileID: 0}
-  homePosition: {fileID: 0}
-  target: {fileID: 0}
+  movement: {fileID: 1703701962}
+  homePosition: {fileID: 1988710784}
+  target: {fileID: 2723104417247182865, guid: 3579f869e42c05147a138e4d511aae0e, type: 3}
   baseSpeed: 6
   frightenedSpeed: 3
   eatenSpeed: 9
